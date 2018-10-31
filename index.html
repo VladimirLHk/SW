@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Words </title>
+    <meta charset="UTF-8">
+	<link rel="stylesheet" href="sw.css">
+  </head>
+  <body>
+	<form id="workPlace" method="post">
+		<p> Введите буквы, которые Вам сложно произносить: </p>
+		<input type="text" id="exclude"><br>
+		<br>
+		Введите Ваш текст:<br>
+		<textarea id="userText" rows="10" cols="50"></textarea><br>
+		<br>
+		<div id="changes" hidden> 
+			<select  id="listToChange">
+			</select>
+			Варианты ====>
+			<select id="choosenItemSynonyms">
+				<option>Оставить изначальный<option>
+			</select>
+		</div>
+		<h4 id="nothingToChange"> Нечего менять </h4>
+	</form>
+	<script src=3.js> </script>
+  </body>
+</html>

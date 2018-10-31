@@ -1,0 +1,29 @@
+BODY {
+    background: cornsilk;
+}
+
+#exclude, #listToChange {
+    background: bisque;
+    font-weight: bold;
+    color: crimson;
+}
+
+#exclude {
+    font-style: oblique;
+}
+
+#choosenItemSynonyms {
+    background: lightcyan;
+    color: cadetblue;
+
+}
+
+#userText {
+    padding: 20px;
+    font-size: larger;
+}
+
+input:hover, textarea:hover, select:hover   {
+    border: blue 3px solid;
+}
+/**/

@@ -12,7 +12,7 @@ class SynonymsChoise extends React.Component {// выбор синонима, н
 
         let choosenWord = this.props.choosenWord; // слово, которое надо заменить
         let newWord = e.target.value; // слово, на которое надо заменить
-        const pattern = "(^|[^а-яё-])" + choosenWord + "($|[^а-яё-])"; //формирование шаблона для поиска слов на замену: начало строки или "небуква", потом выбранное слово, после которого идет "небуква" или конец строки
+        const pattern = "(^|[^а-яё])" + choosenWord + "($|[^а-яё])"; //формирование шаблона для поиска слов на замену: начало строки или "небуква", потом выбранное слово, после которого идет "небуква" или конец строки
         const re = new RegExp (pattern, "mig");
         let newText = this.props.userText.replace(re, smartReplacer);
         this.props.onWordChange(newText);

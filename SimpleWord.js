@@ -1,3 +1,8 @@
+/*
+Главный модуль интерфеса сервиса 'Simple Word'.
+ */
+
+
 import React, { Component } from 'react';
 import {getWordsToChange}  from './AuxLib';
 import SyllableFilter from './SyllableFilter';
@@ -8,21 +13,24 @@ import WordToChange from './WordToChange';
 class SimpleWord extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {filterStr: "", userText: ""};
+        this.state = {filterStr: "", userText: ""}; //инициализируются элементы "Строка-список сложных букв и сочетаний" и "Текст для порверки" М.б. стоит предусмотреть возможность передачи начальных значений?
         this.handleSyllableFilter = this.handleSyllableFilter.bind(this);
         this.handleTextToChange = this.handleTextToChange.bind(this);
         this.handleWordToChange = this.handleWordToChange.bind(this);
 
     }
 
+    //изменяет состояние фильтра: перечня букв и сочетаний, котроые трудно поризносить
     handleSyllableFilter (filter) {
         this.setState ({filterStr: filter});
     }
 
+    //изменяет состояние текста, в котором ищутся слова со сложными буквами и сочетаниями
     handleTextToChange (userTextToCheck) {
         this.setState ({userText: userTextToCheck});
     }
 
+    //интерфейс выбора подходящих синонимов для обнаруженных в тексте слов со сложными буквами и сочетаниями
     handleWordToChange (newUserText) {
         this.setState ({userText: newUserText});
     }
@@ -34,8 +42,8 @@ class SimpleWord extends React.Component {
 
 
         if (isFullCondition) {// сформирован набор букв для исключения, и есть текст
-            const listToChange = getWordsToChange (filterStr, userText);
-            if (listToChange.size == 0) {// нет слов для замены
+            const listToChange = getWordsToChange (filterStr, userText); //формирование списка слов на замену
+            if (listToChange.size == 0) {// нет слов для замены;
                 return (
                     <div>
                         <SyllableFilter filterStr={filterStr} onSyllableFilterChange={this.handleSyllableFilter}/>
@@ -43,7 +51,7 @@ class SimpleWord extends React.Component {
                         <p> В тексте нет слов, которые надо менять. </p>
                     </div>
                 )
-            } else { // есть слова для замены
+            } else { // есть слова для замены; формируем список слов на замену и отображаем раздел выбора синонимов на замену
                 let optionsWords = [];
                 for (let currentWord of listToChange.keys()) {
                     let curWrd = listToChange.get(currentWord);

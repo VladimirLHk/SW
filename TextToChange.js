@@ -16,13 +16,14 @@ class TextToChange extends React.Component {// ввод текста, в кот�
         let userText = this.props.userText;
 
         return (
-            <fieldset>
+            <fieldset className = "element">
                 <legend> Введите Ваш текст: </legend>
-                <textarea value={userText} onChange={this.handleChange} rows="10" cols="50"/>
+                <textarea value={userText} onChange={this.handleChange} />
             </fieldset>
         );
     }
 }
 
+//rows="10" cols="50"
 
 export default TextToChange;

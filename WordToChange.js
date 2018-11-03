@@ -50,7 +50,7 @@ class WordToChange extends React.Component {// выбор слова на зам
             let optArr = [<option value={0} key={0}> Оставить без изменения </option>];
             for (let i=0; i<synArr.length; i++) optArr.push(<option value={synArr[i]} key={i+1}> {synArr[i]} </option>); // формирует новый список синонимов по выбранноу слову
             return (
-                <div>
+                <div class = "element">
                     <p> Слова на замену: </p>
                     <select id="words" value={choosenWord} onChange={this.handleWordChoise}>
                         {optionsWords}

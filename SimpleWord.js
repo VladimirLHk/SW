@@ -40,14 +40,21 @@ class SimpleWord extends React.Component {
         const userText = this.state.userText;
         const isFullCondition = filterStr && userText;
 
+        const mainBlock = [
+            <br/>,
+            <br/>,
+            <br/>,
+            <SyllableFilter filterStr={filterStr} onSyllableFilterChange={this.handleSyllableFilter}/>,
+            <TextToChange userText={userText} onTextChange={this.handleTextToChange}/>
+        ];
+
 
         if (isFullCondition) {// сформирован набор букв для исключения, и есть текст
             const listToChange = getWordsToChange (filterStr, userText); //формирование списка слов на замену
             if (listToChange.size == 0) {// нет слов для замены;
                 return (
-                    <div>
-                        <SyllableFilter filterStr={filterStr} onSyllableFilterChange={this.handleSyllableFilter}/>
-                        <TextToChange userText={userText} onTextChange={this.handleTextToChange}/>
+                    <div className = "element">
+                        {mainBlock}
                         <p> В тексте нет слов, которые надо менять. </p>
                     </div>
                 )
@@ -58,9 +65,8 @@ class SimpleWord extends React.Component {
                     optionsWords.push(<option value={currentWord} key={curWrd.id}> {currentWord} </option>);
                 }
                 return (
-                    <div>
-                        <SyllableFilter filterStr={filterStr} onSyllableFilterChange={this.handleSyllableFilter}/>
-                        <TextToChange userText={userText} onTextChange={this.handleTextToChange}/>
+                    <div className = "element">
+                        {mainBlock}
                         <WordToChange optionsWords={optionsWords} dic={listToChange} userText={userText}
                                       onWordChange={this.handleWordToChange}/>
                     </div>
@@ -68,10 +74,9 @@ class SimpleWord extends React.Component {
             }
         } else {// не сформирован набор букв для исключения или нет текста
             return (
-                <div>
-                    <SyllableFilter filterStr={filterStr} onSyllableFilterChange={this.handleSyllableFilter}/>
-                    <TextToChange userText={userText} onTextChange={this.handleTextToChange}/>
-                </div>
+                <div className = "element">
+                    {mainBlock}
+               </div>
             )
         }
     }

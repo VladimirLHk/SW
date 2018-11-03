@@ -22,7 +22,7 @@ class SyllableFilter extends React.Component { // ввод строки с бу�
         let str = this.props.filterStr;
 
         return (
-            <fieldset>
+            <fieldset className = "element">
                 <legend> Введите буквы и сочетания букв, которые Вам сложно произносить: </legend>
                 <input type="text" value={str} onChange={this.handleChange} onBlur={this.handleBlur}/>
             </fieldset>

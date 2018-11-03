@@ -14,7 +14,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css'; // а нужен ли он здесь?
+import './index.css';
 import SimpleWord from './SimpleWord';
 import registerServiceWorker from './registerServiceWorker'; // не знаю зачем он здесь; остался из шаблона Реакта. Надо разобраться!!!
 
